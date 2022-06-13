@@ -1,0 +1,25 @@
+# Pipeline to run release pipeline test.
+
+trigger:
+  - main
+
+pool: Default
+
+
+stages:
+  
+  - stage: stage1
+    displayName: Stage One
+    jobs:
+      
+      - job: job1
+        displayName: job one
+        steps:
+        
+          - script: echo "Hello World" >> index.html
+
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: $(Build.SourcesDirectory)/index.html
+              ArtifactName: test    # PIPELINE ARTIFACT NAME
