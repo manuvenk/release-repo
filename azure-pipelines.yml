@@ -16,7 +16,7 @@ stages:
         displayName: job one
         steps:
         
-          - script: echo "Hello World" >> index.html
+          - script: echo "Hello World" > index.html
 
 
           - task: PublishBuildArtifacts@1
